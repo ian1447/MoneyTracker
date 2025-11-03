@@ -17,6 +17,13 @@ import {
 import AddIcon from "@mui/icons-material/Add";
 import { useState } from "react";
 
+interface Bank {
+  name: string;
+  accountNumber: string;
+  branch: string;
+  balance: number;
+}
+
 export default function DashboardPage() {
   const [banks, setBanks] = useState<
     { name: string; accountNumber: string; branch: string; balance: string }[]
@@ -34,7 +41,7 @@ export default function DashboardPage() {
   const [onhands, setOnhands] = useState<
     { name: string; description: string; amount: string }[]
   >([]);
-  const [selectedBank, setSelectedBank] = useState(null);
+  const [selectedBank, setSelectedBank] = useState<Bank | null>(null);
   const [open, setOpen] = useState(false);
   const [openDialog, setOpenDialog] = useState(false);
   const [dialogType, setDialogType] = useState<
